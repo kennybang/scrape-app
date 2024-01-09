@@ -15,4 +15,4 @@ pip install requests beatifulsoup4 pandas plotly numpy
 - **plotly**: Graphing library for interactive visualizations
 - **numpy**: Additional data manipulation
 
-
+![Preview Image](assets/preview.png)

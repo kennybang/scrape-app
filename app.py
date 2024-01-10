@@ -31,7 +31,7 @@ fig_team = px.line(team_standings_data,
                     title='F1 Team Standings Over the Years',
                     markers=True,
                     category_orders={"Team Name": team_order},
-                    hover_data=["Points"])
+                    hover_data=["Points", "Name Then"])
     
 fig_driver.update_yaxes(autorange="reversed")
 fig_team.update_yaxes(autorange="reversed")

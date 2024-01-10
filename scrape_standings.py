@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import plotly.express as px
 import numpy as np
+from team_name_mapping import map_team_name
 
 def scrape_f1_driver_standings(years):
     # Create an empty DataFrame to store the data
@@ -61,7 +62,7 @@ def scrape_f1_driver_standings(years):
 
 def scrape_f1_team_standings(years):
     # Create an empty DataFrame to store the data
-    columns = ['Position', 'Team Name', 'Points', 'Year']
+    columns = ['Position', 'Team Name', 'Name Then', 'Points', 'Year']
     all_data = pd.DataFrame(columns=columns)
 
     for year in years:
@@ -91,10 +92,11 @@ def scrape_f1_team_standings(years):
                     position = position_element.text if position_element else None
                     points = points_element.text if points_element else None
 
+                    curr_name = map_team_name(team_name)
 
                     # Append data to the list
                     if position != "EX":    #Avoid Schumachers DQ :sadface:
-                        data.append([int(position), team_name, points, year])
+                        data.append([int(position), curr_name, team_name,  points, year])
 
                 # Create a DataFrame using the collected data
                 df = pd.DataFrame(data, columns=columns)

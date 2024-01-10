@@ -51,7 +51,19 @@ app.layout = html.Div(children=[
         id='team_standings-graph',
         figure=fig_team,
         style={'height': '600px'} 
-    )
+    ),
+    html.Div(children=[
+        dcc.Graph(
+        id='team_standings-graph1',
+        figure=fig_team,
+        style={'height': '600px', 'flex': 1} 
+    ),
+        dcc.Graph(
+        id='team_standings-graph2',
+        figure=fig_team,
+        style={'height': '600px', 'flex': 1} 
+    ),
+    ], style={'display': 'flex', 'flexDirection': 'row'}),
 ])
 
 if __name__ == '__main__':

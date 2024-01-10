@@ -56,7 +56,7 @@ def scrape_f1_standings(years):
         else:
             print(f"Failed to retrieve data for year {year}. Status Code: {response.status_code}")
 
-    print(all_data) #For debugging
+    #print(all_data) #For debugging
     return all_data
 
 if __name__ == "__main__":

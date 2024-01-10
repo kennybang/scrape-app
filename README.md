@@ -6,7 +6,7 @@ Make sure to have the following Python libraries installed:
 
 
 ```bash
-pip install requests beatifulsoup4 pandas plotly numpy
+pip install requests beatifulsoup4 pandas plotly numpy dash
 ```
 
 - **requests**: Used for making HTTP requests
@@ -14,5 +14,6 @@ pip install requests beatifulsoup4 pandas plotly numpy
 - **pandas**: Data manipulation library
 - **plotly**: Graphing library for interactive visualizations
 - **numpy**: Additional data manipulation
+- **Dash**: Python framework for building web applications
 
 ![Preview Image](assets/preview.png)

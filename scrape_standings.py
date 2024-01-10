@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 import numpy as np
 
-def scrape_f1_standings(years):
+def scrape_f1_driver_standings(years):
     # Create an empty DataFrame to store the data
     columns = ['Position', 'Name', 'Surname', 'Full Name', 'Points', 'Year']
     all_data = pd.DataFrame(columns=columns)
@@ -59,6 +59,8 @@ def scrape_f1_standings(years):
     #print(all_data) #For debugging
     return all_data
 
+"""
+
 if __name__ == "__main__":
     # Years to scrape
     years_to_scrape = list(range(2014, 2024))
@@ -80,6 +82,6 @@ if __name__ == "__main__":
 
     fig.show()
 
-
+"""
 
 

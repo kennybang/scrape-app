@@ -2,7 +2,7 @@
 from dash import html, dcc, Dash
 import plotly.express as px
 import numpy as np
-from scrape_standings import scrape_f1_standings  # Import the function from your scraping script
+from scrape_standings import scrape_f1_driver_standings  # Import the function from your scraping script
 
 
 years_to_scrape = list(range(2014, 2024))

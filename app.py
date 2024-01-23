@@ -39,7 +39,18 @@ fig_team = px.line(team_standings_data,
                     markers=True,
                     category_orders={"Team Name": team_order},
                     hover_data=["Points", "Name Then"])
-    
+
+bar_data = driver_standings_data[driver_standings_data['Year'] == 2012]
+
+fig_bar_driver = px.bar(bar_data,
+                    x='Full Name',
+                    y='Points',
+                    title='F1 Points for a year',
+                    
+                    )
+
+print(bar_data)
+
 fig_driver.update_yaxes(autorange="reversed")
 fig_team.update_yaxes(autorange="reversed")
 
@@ -68,6 +79,20 @@ app.layout = html.Div(children=[
 
     dcc.RangeSlider(years.min(), years.max(), 1, marks={years.min(): str(years.min()), years.max(): str(years.max())}, value=[from_year, to_year], tooltip={"placement": "bottom", "always_visible": True}, id='team_slider'),
 
+    html.Hr(),
+
+        html.Div(children=[
+        dcc.Graph(
+        id='team_standings-graph1',
+        figure=fig_team,
+        style={'height': '600px', 'flex': 1} 
+    ),
+        dcc.Graph(
+        id='team_standings-graph2',
+        figure=fig_bar_driver,
+        style={'height': '600px', 'flex': 1} 
+    ),
+    ], style={'display': 'flex', 'flexDirection': 'row'}),
 ])
 
 @callback(

@@ -43,7 +43,7 @@ def scrape_f1_driver_standings(years):
 
                     # Append data to the list
                     if position != "DQ":    #Avoid Schumachers DQ :sadface:
-                        data.append([int(position), name, surname,  f"{name} {surname}", points, int(year)])
+                        data.append([int(position), name, surname,  f"{name} {surname}", float(points), int(year)])
 
                 # Create a DataFrame using the collected data
                 df = pd.DataFrame(data, columns=columns)

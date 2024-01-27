@@ -103,7 +103,6 @@ app.layout = html.Div(children=[
             figure=fig_bar_driver,
             style={'height': '600px', 'flex': 1} 
             ),
-            dcc.RangeSlider(years.min(), years.max(), 1, marks={years.min(): str(years.min()), years.max(): str(years.max())}, value=[from_year, to_year], tooltip={"placement": "bottom", "always_visible": True}, id='driver_year_slider'),
             
             dcc.Slider(years.min(), years.max(), 1, marks={years.min(): str(years.min()), years.max(): str(years.max())}, value=years.max(), tooltip={"placement": "bottom", "always_visible": True}, id="glider" )
             

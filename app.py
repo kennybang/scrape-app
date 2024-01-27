@@ -82,16 +82,37 @@ app.layout = html.Div(children=[
     html.Hr(),
 
         html.Div(children=[
-        dcc.Graph(
-        id='team_standings-graph1',
-        figure=fig_team,
-        style={'height': '600px', 'flex': 1} 
-    ),
-        dcc.Graph(
-        id='team_standings-graph2',
-        figure=fig_bar_driver,
-        style={'height': '600px', 'flex': 1} 
-    ),
+        
+        html.Div(children=[
+            dcc.Graph(
+            id='team_standings-graph1',
+            figure=fig_team,
+            style={'height': '600px', 'flex': 1} 
+             ),
+
+            dcc.RangeSlider(years.min(), years.max(), 1, marks={years.min(): str(years.min()), years.max(): str(years.max())}, value=[from_year, to_year], tooltip={"placement": "bottom", "always_visible": True}, id='some_slider'),
+ 
+            ],
+            style={'width': '50%' }
+        
+        ),
+
+        html.Div(children=[
+            dcc.Graph(
+            id='team_standings-graph2',
+            figure=fig_bar_driver,
+            style={'height': '600px', 'flex': 1} 
+            ),
+            dcc.RangeSlider(years.min(), years.max(), 1, marks={years.min(): str(years.min()), years.max(): str(years.max())}, value=[from_year, to_year], tooltip={"placement": "bottom", "always_visible": True}, id='driver_year_slider'),
+            
+            dcc.Slider(years.min(), years.max(), 1, marks={years.min(): str(years.min()), years.max(): str(years.max())}, value=years.max(), tooltip={"placement": "bottom", "always_visible": True}, id="glider" )
+            
+            ],
+
+            style={'width': '50%' }
+        ),
+        
+        
     ], style={'display': 'flex', 'flexDirection': 'row'}),
 ])
 

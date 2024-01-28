@@ -99,12 +99,12 @@ app.layout = html.Div(children=[
 
         html.Div(children=[
             dcc.Graph(
-            id='team_standings-graph2',
+            id='driver_year_graph',
             figure=fig_bar_driver,
             style={'height': '600px', 'flex': 1} 
             ),
             
-            dcc.Slider(years.min(), years.max(), 1, marks={years.min(): str(years.min()), years.max(): str(years.max())}, value=years.max(), tooltip={"placement": "bottom", "always_visible": True}, id="glider" )
+            dcc.Slider(years.min(), years.max(), 1, marks={years.min(): str(years.min()), years.max(): str(years.max())}, value=years.max(), tooltip={"placement": "bottom", "always_visible": True}, id="driver_year_slider" )
             
             ],
 
@@ -162,6 +162,23 @@ def update_team_fig(value):
     fig.update_yaxes(autorange="reversed")
 
     fig.update_layout(transition_duration=500)
+
+    return fig
+
+@callback(
+    Output('driver_year_graph', 'figure'),
+    Input('driver_year_slider', 'value'))
+def update_driver_year_fig(value):
+
+    year = value
+
+    bar_data = driver_standings_data[driver_standings_data['Year'] == year]
+
+    fig = px.bar(bar_data,
+                x='Full Name',
+                y='Points',
+                title='F1 Points for a year',
+                )
 
     return fig
 

@@ -1,5 +1,5 @@
 # Webscraper F1 Standings
-As of now, the repository only has a python script that **scrape_standings.py** that scrapes Formula 1 driver standings from the official [Formula 1 website](https://www.formula1.com/en/results.html/2023/drivers.html) and visualizes it using [Plotly Express](https://plotly.com/python/plotly-express/)
+This project scrapes Formula 1 results from the official [Formula 1 website](https://www.formula1.com/en/results.html/2023/drivers.html) and visualizes it using [Plotly Express](https://plotly.com/python/plotly-express/).
 
 ## Prerequisites
 Make sure to have the following Python libraries installed:
